@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Armata" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Armata|Roboto+Condensed" rel="stylesheet">
     <title>Palmyut's Home</title>
 </head>
 
@@ -22,92 +22,108 @@
         <!-- dashboard -->
         <div class="col-6">
             <!-- temperature -->
-            <div id="temperature">
-                <h2 id="temperatur-valuable" align="center">
-                    test
-                </h2>
-            </div>
+            <div id="temperature">37</div>
             <!-- humid -->
-            <div id="humid" class="row">
-                <div id="humid-icon" class="col-2">
-
+            <div class="row infoRow justify-content-md-center">
+                <div class="col-2">
+                    <img src="img/humid.png" class="infoIcon">
                 </div>
                 <div class="col-3">
-                    <h3 align="center">Humid</h3>
+                    Humidity
                 </div>
-                <div id="humid-valuable" class="col-7">
-
+                <div id="humidity" class="col-3">
+                    99%
                 </div>
             </div>
             <!-- intensity -->
-            <div id="intensity" class="row">
-                <div id="intensity-icon" class="col-2">
-
+            <div class="row infoRow  justify-content-md-center">
+                <div class="col-2">
+                    <img src="img/lightintense.png" class="infoIcon">
                 </div>
                 <div class="col-3">
-                    <h3 align="center">intensity</h3>
+                    Intensity
                 </div>
-                <div id="intensity-valuable" class="col-7">
-
+                <div id="light_intensity" class="col-3">
+                    99%
                 </div>
             </div>
         </div>
         <!-- control -->
         <div id="control" class="col-6">
-            <div id="airconditioner-control" class="row">
-                <div id="airconditioner-icon" class="col-2">
-
+            <div id="airconditioner-control" class="row deviceControl align-items-center">
+                <div class="col-2">
+                    <img id="airconditioner-icon" src="img/airconditioner-off.png" class="deviceIcon">
                 </div>
                 <div class="col-4">
                     <h3 align="center">Air Conditioner</h3>
                 </div>
-                <div id="airconditioner-switch" class="col-4">
-
-                </div>
-                <div id="airconditioner-timer" class="col-2">
-
-                </div>
-            </div>
-            <div id="light-control" class="row">
-                <div id="light-icon" class="col-2">
-
+                <div class="col-2">
+                    <label class="switch">
+                        <input type="checkbox" id="airconditioner_state">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
                 <div class="col-4">
-                    <h3 align="center">Light</h3>
-                </div>
-                <div id="light-switch" class="col-4">
-
-                </div>
-                <div id="light-timer" class="col-2">
-
+                    <a href="#" class="btn btn-outline-light" data-action="timer" data-device="airconditioner">
+                        <img src="img/timer.png" class="timer"> Set Timer
+                    </a>
                 </div>
             </div>
-            <div id="buzzer-control" class="row">
-                <div id="buzzer-icon" class="col-2">
-
+            <div id="bulb-control" class="row deviceControl align-items-center">
+                <div class="col-2">
+                    <img id="light-icon" src="img/light-off.png" class="deviceIcon">
+                </div>
+                <div class="col-4">
+                    <h3 align="center">Light Bulb</h3>
+                </div>
+                <div class="col-2">
+                    <label class="switch">
+                        <input type="checkbox" id="bulb_state">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="col-4">
+                    <a href="#" class="btn btn-outline-light" data-action="timer" data-device="bulb">
+                        <img src="img/timer.png" class="timer"> Set Timer
+                    </a>
+                </div>
+            </div>
+            <div id="speaker-control" class="row deviceControl align-items-center">
+                <div class="col-2">
+                    <img id="speaker-icon" src="img/speaker.png" class="deviceIcon">
                 </div>
                 <div class="col-4">
                     <h3 align="center">Buzzer</h3>
                 </div>
-                <div id="buzzer-switch" class="col-4">
-
+                <div class="col-2">
+                    <label class="switch">
+                        <input type="checkbox" id="speaker_state">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-                <div id="buzzer-timer" class="col-2">
-
+                <div class="col-4">
+                    <a href="#" class="btn btn-outline-light" data-action="timer" data-device="speaker">
+                        <img src="img/timer.png" class="timer"> Set Timer
+                    </a>
                 </div>
             </div>
-            <div id="door-control" class="row">
-                <div id="door-icon" class="col-2">
-
+            <div id="door-control" class="row deviceControl align-items-center">
+                <div class="col-2">
+                    <img id="door-icon" src="img/door.png" class="deviceIcon">
                 </div>
                 <div class="col-4">
                     <h3 align="center">Door</h3>
                 </div>
-                <div id="door-switch" class="col-4">
-
+                <div class="col-2">
+                    <label class="switch">
+                        <input type="checkbox" id="door_state">
+                        <span class="slider round"></span>
+                    </label>
                 </div>
-                <div id="door-timer" class="col-2">
-
+                <div class="col-4">
+                    <a href="#" class="btn btn-outline-light" data-action="timer" data-device="door">
+                        <img src="img/timer.png" class="timer"> Set Timer
+                    </a>
                 </div>
             </div>
         </div>
