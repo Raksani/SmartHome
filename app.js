@@ -73,9 +73,9 @@ let home = {
 
                 if(key.indexOf('_state')!=-1){
                     if(this[key]==1)
-                        $('#'+key).attr('checked','true')
+                        $('#'+key).prop('checked','true')
                     else 
-                        $('#'+key).removeAttr('checked')
+                        $('#'+key).removeProp('checked')
                 } else if(key=="temperature"||key=="humidity"||key=="light_intensity") {
                     $('#'+key).text(this[key])
                 }
@@ -107,7 +107,7 @@ $(function () {
     $('input[type="checkbox"]').click(function(){
         let dataId = $(this).attr('id');
         console.log("checkBox clicked "+dataId);
-        this[dataId] = ($('#'+dataId).is(':checked'))?1:0;
+        home[dataId] = ($('#'+dataId).is(':checked')==true)?1:0;
         home.toggleState(dataId.replace("_state",""))
     })
     $('[data-action="timer"]').click(function(){
