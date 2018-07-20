@@ -112,9 +112,9 @@ let home = {
     },
     toggleState: function (device) {
         console.log(`Toggling ${device} to ${this[device + "_state"]}...`)
-        $('#'+device+'Loading').show();
+        $('#'+device+'Loading').show(500);
         exceed.saveVal(device+"_state", (this[device + "_state"]) ? 1 : 0, function (isOK) {
-            $('#'+device+'Loading').hide();
+            $('#'+device+'Loading').hide(500);
             if (!isOK){
                 alert("Cannot toggle state of "+device);
             } else {
@@ -146,6 +146,7 @@ $(function () {
             title: `Set timer for ${btnData.device}`,
             content: `
             <input class="form-control" type="number" min="0" value="0"> min(s) <input class="form-control" type="number" min="0" max="59" value="0"> sec(s) 
+            <button type="submit" class="btn btn-block btn-primary">Set</button>
             `,
             html: true,
             template:'<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header text-dark"></h3><div class="popover-body text-dark"></div></div>'
