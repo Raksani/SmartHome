@@ -1,22 +1,50 @@
 body {
     background: linear-gradient(-180deg, #2b5876 0%,#4e4376 100%);
 }
+
 html {
     height: 100vh;
 }
+
 h1 {
     font-family: 'Armata', sans-serif;
     color: white;
-    border: 1mm;
     border-color: black;
 }
+
+#header {
+    margin-top: 3%
+}
+
 * {
     font-family: 'Armata', sans-serif;
     color: white;
 }
-#control {
-    margin-top: 100px
+
+#temperature{
+    margin-top: 25% 
 }
-#header {
-    margin-top: 30px
+
+#humid{
+    margin-top: 20%
 }
+
+#intensity{
+    margin-top: 10%
+}
+#airconditioner-control{
+    margin-top: 13%;
+}
+
+#light-control{
+    margin-top: 13%;
+}
+
+#buzzer-control{
+    margin-top: 13%;
+}
+
+#door-control{
+    margin-top: 13%;
+}
+
