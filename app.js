@@ -1,8 +1,13 @@
 let apiUrl = 'http://ecourse.cpe.ku.ac.th:1515/api/'
+let apiPrefix = 'palmyut-'
 function getVal(name,callback){
+    /* 
+    name - Key Name without apiPrefix (ex: temperature)
+    callback - Function which calls on finish
+    */
     $.ajax({
         type: "GET",
-        url: `${apiUrl}${name}/view/`,
+        url: `${apiUrl}${apiPrefix}${name}/view/`,
         dataType: "text",
         success: function (response) {
             if(typeof callback =="function") callback(response)
@@ -16,7 +21,7 @@ function getVal(name,callback){
 function saveVal(name,val,callback){
     $.ajax({
         type: "POST",
-        url: `${apiUrl}${name}/set/`,
+        url: `${apiUrl}${apiPrefix}${name}/set/`,
         data: {value: val},
         dataType: "json",
         success: function (response) {
