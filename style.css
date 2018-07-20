@@ -4,3 +4,9 @@ body {
 * {
     font-family: 'Armata', sans-serif;
 }
+#control {
+    margin-top: 100px
+}
+#header {
+    margin-top: 30px
+}
