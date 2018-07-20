@@ -79,13 +79,16 @@ let home = {
                 } else if(key=="temperature"||key=="humidity"||key=="light_intensity") {
                     $('#'+key).text(this[key])
                 }
+                
+                //Additional Icon change
+                if(key=="airconditioner_state") $('#'+key.replace("_state","")+"-icon").attr('src','img/airconditioner-'+((this[key])?'on':'off')+'.png')
             })
         }
     },
     toggleState: function (device) {
         console.log(`Toggling ${device} to ${this[device + "_state"]}...`)
         $('#'+device+'Loading').show();
-        exceed.saveVal(device, (this[device + "_state"]) ? 1 : 0, function (isOK) {
+        exceed.saveVal(device+"_state", (this[device + "_state"]) ? 1 : 0, function (isOK) {
             $('#'+device+'Loading').hide();
             if (!isOK){
                 alert("Cannot toggle state of "+device);
@@ -111,9 +114,20 @@ $(function () {
         home.toggleState(dataId.replace("_state",""))
     })
     $('[data-action="timer"]').click(function(){
-        let data = $(this).data();
-        //TODO: Timer Dialog
+        console.log("clickkk");
+        let btnData = $(this).data();
+        $('.popover').remove();
+        $(this).popover({
+            title: `Set timer for ${btnData.device}`,
+            content: `
+            <input class="form-control" type="number" min="0" value="0"> min(s) <input class="form-control" type="number" min="0" max="59" value="0"> sec(s) 
+            `,
+            html: true,
+            template:'<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header text-dark"></h3><div class="popover-body text-dark"></div></div>'
+        })
+        $(this).popover('show')
         return false;
     })
     home.updateData()
+    setInterval(function() { home.updateData() },5000)
 })
