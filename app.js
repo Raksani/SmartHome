@@ -19,7 +19,7 @@ let exceed = {
     },
     saveVal: function (name, val, callback) {
         $.ajax({
-            type: "POST",
+            type: "GET",
             url: `${this.url}${this.prefix}${name}/set/`,
             data: { value: val },
             dataType: "json",
