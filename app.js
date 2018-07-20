@@ -50,6 +50,25 @@ let exceed = {
             })
     }
 }
+let isLoaded = {
+    door_state: 0,
+    bulb_state: 0,
+    airconditioner_state: 0,
+    temperature: 0,
+    humidity: 0,
+    light_intensity: 0,
+    speaker_state:0
+};
+let checkLoadCnt = function(compare,callback) {
+    let cnt = 0;
+    for (var i = 0; i < home.dataList.length; i++) {
+        cnt+=isLoaded[home.dataList[i]] 
+    }
+    console.log("cnt "+cnt+" compare "+compare)
+    if(compare==cnt) {
+        callback();
+    }
+}
 let home = {
     dataList: ['door_state','bulb_state','airconditioner_state','temperature','humidity','light_intensity','speaker_state'],
     speaker_state: 0,
@@ -59,11 +78,17 @@ let home = {
     temperature: 0.00,//Float
     humidity: 0.00,//Float
     light_intensity: 0,//Int
+    
     updateData: function (name) {
         for (var i = 0; i < this.dataList.length; i++) {
             console.log(`updateData i=${i} ${this.dataList[i]} START!`)
             let key = this.dataList[i]
             exceed.getVal(key, function (resp) {
+                isLoaded[key] = 1
+                checkLoadCnt(home.dataList.length,function() {
+                    $('#cover-spin').hide();
+                })
+
                 console.log(`updateData ${key} RESP: ${resp}`)
                 if (resp == null || resp == "") {
                     this[key] = "N/A"
@@ -128,6 +153,7 @@ $(function () {
         $(this).popover('show')
         return false;
     })
+    $('#cover-spin').show(0)
     home.updateData()
-    setInterval(function() { home.updateData() },5000)
+    setInterval(function() { home.updateData() },7000)
 })
