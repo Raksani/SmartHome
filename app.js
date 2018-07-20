@@ -57,7 +57,7 @@ let isLoaded = {
     temperature: 0,
     humidity: 0,
     light_intensity: 0,
-    speaker_state:0
+    buzzer_state:0
 };
 let checkLoadCnt = function(compare,callback) {
     let cnt = 0;
@@ -70,8 +70,8 @@ let checkLoadCnt = function(compare,callback) {
     }
 }
 let home = {
-    dataList: ['door_state','bulb_state','airconditioner_state','temperature','humidity','light_intensity','speaker_state'],
-    speaker_state: 0,
+    dataList: ['door_state','bulb_state','airconditioner_state','temperature','humidity','light_intensity','buzzer_state'],
+    buzzer_state: 0,
     door_state: 0,
     bulb_state: 0,
     airconditioner_state: 0,
