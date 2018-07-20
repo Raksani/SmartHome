@@ -1,11 +1,18 @@
 body {
-    background: linear-gradient(-90deg, #fbc2eb 0%, #a6c1ee 100%);
+    background: linear-gradient(-180deg, #2b5876 0%,#4e4376 100%);
+}
+html {
+    height: 100vh;
 }
 h1 {
     font-family: 'Armata', sans-serif;
+    color: white;
+    border: 1mm;
+    border-color: black;
 }
 * {
     font-family: 'Armata', sans-serif;
+    color: white;
 }
 #control {
     margin-top: 100px
